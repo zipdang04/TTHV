@@ -1,4 +1,4 @@
-namespace UnitTest;
+namespace TTHV.UnitTest;
 
 [TestClass]
 public class UnitTest1 : PageTest
