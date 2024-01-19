@@ -7,17 +7,6 @@ public class WarmUpRelay
     public const int CORRECT = 10;
     public const int WRONG = 0;
 
-    public static readonly string[] SUBJECTS =
-    {
-        "Khoa học tự nhiên",
-        "Khoa học xã hội",
-        "Nghệ thuật",
-        "Thể thao",
-        "Công nghệ Thông tin",
-        "Tiếng Anh",
-        "Lĩnh vực khác"
-    };
-
     public WarmUpRelay()
     {
         questions = new Question[Constant.PLAYERS][];
