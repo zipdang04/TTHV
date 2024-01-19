@@ -1,5 +1,10 @@
 namespace TTHV.MatchInformation.Exam;
 
+/*
+ * 8 câu, 5s/câu
+ * đúng 10+5*(số tsinh sai), sai 0
+ */
+
 public class WarmUpConfront
 {
     public const int QUESTION_COUNT = 8;

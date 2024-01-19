@@ -1,8 +1,14 @@
 namespace TTHV.MatchInformation.Exam;
 
+/*
+ * 7 câu / 30s / thí sinh
+ * đúng +10, sai 0
+ */
+
 public class WarmUpRelay
 {
     public const int QUESTION_COUNT = 7;
+    public const int TIME = 30;
 
     public const int CORRECT = 10;
     public const int WRONG = 0;
