@@ -8,5 +8,22 @@
 
     <Application.Styles>
         <FluentTheme Mode="Light"/>
+        
+        <Style Selector="Label.CenterText">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+        <Style Selector="Button.CenterText">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+        <Style Selector="TabItem">
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
     </Application.Styles>
+    
 </Application>

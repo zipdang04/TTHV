@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" d:DesignHeight="450"
+        MinWidth="800" MinHeight="450"
+        x:Class="TTHV.Server.Views.ExamMaker.ExamMakerWindow"
+        Title="ExamMakerWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnExcel" Grid.Column="0" Classes="CenterText" Margin="10"> Nhập đề từ Excel </Button>
+            <Button x:Name="btnSave"  Grid.Column="1" Classes="CenterText" Margin="10"> Lưu </Button>
+        </Grid>
+        
+        <TabControl Margin="5" Grid.Row="1">
+            <TabItem Header="Khởi động - Tiếp sức">
+            </TabItem>
+            <TabItem Header="Khởi động - Thách đấu">
+            </TabItem>
+            <TabItem Header="Vượt chướng ngại vật">
+            </TabItem>
+            <TabItem Header="Tăng tốc">
+            </TabItem>
+            <TabItem Header="Về đích">
+            </TabItem>
+            <TabItem Header="Câu hỏi phụ">
+            </TabItem>
+        </TabControl> 
+        
+    </Grid>
+</Window>

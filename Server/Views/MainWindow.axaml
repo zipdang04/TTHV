@@ -3,7 +3,9 @@
         xmlns:vm="using:TTHV.Server.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" d:DesignHeight="450" 
+        MinWidth="600" MinHeight="500"
         x:Class="TTHV.Server.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Server">
@@ -14,6 +16,16 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Label Classes="CenterText">Tri thức Hoàn vũ - Server</Label>
+        <Button x:Name="btnExamMaker" Classes="CenterText" Grid.Row="1" Click="btnExamMaker_OnClick">Làm đề</Button>
+        <Button x:Name="btnServer" Classes="CenterText" Grid.Row="2">Chạy trận đấu</Button>
+    </Grid>
 
 </Window>
