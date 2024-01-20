@@ -7,4 +7,12 @@
         <RootNamespace>TTHV.Helper</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="0.10.18" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MatchInformation\MatchInformation.csproj" />
+    </ItemGroup>
+
 </Project>
