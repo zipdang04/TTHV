@@ -9,6 +9,7 @@ public class WarmUpConfront
 {
     public const int QUESTION_COUNT = 8;
     public const int TIME_PER_Q = 5;
+    public const int BELL_TIME = 5;
 
     public const int CORRECT = 10, BONUS = 5;
     public const int WRONG = 0;

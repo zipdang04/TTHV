@@ -8,6 +8,9 @@ public class Finish
     public const int TURNS_PER_PLAYER = 2;
     public const int Q_PER_TURN = 2;
     public static readonly int[] Q_TYPES = new int[TYPE_COUNT] { 10, 20, 30 };
+    public static readonly int[] TIMES = new int[TYPE_COUNT] { 10, 15, 20 };
+    public const int BELL_TIME = 5;
+    
 
     public Finish()
     {
