@@ -7,4 +7,8 @@
         <RootNamespace>TTHV.MatchInformation</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Match" />
+    </ItemGroup>
+
 </Project>
