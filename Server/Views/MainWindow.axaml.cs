@@ -13,7 +13,14 @@ public partial class MainWindow : Window
 
     private void btnExamMaker_OnClick(object? sender, RoutedEventArgs e) {
         ExamMakerWindow examMakerWindow = new ExamMakerWindow();
-        examMakerWindow.Closed += (o, args) => this.Show();
+        examMakerWindow.Closed += (o, args) => {
+            try {
+                this.Show();
+            }
+            catch {
+                this.Close();
+            }
+        };
         
         examMakerWindow.Show();
         Hide();

@@ -9,8 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Folder Include="Assets\Exam" />
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
+        <Folder Include="Views\ExamMaker\Controller" />
         <None Remove=".gitignore" />
     </ItemGroup>
 
@@ -25,5 +27,9 @@
         <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
         <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.18" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MatchInformation\MatchInformation.csproj" />
     </ItemGroup>
 </Project>

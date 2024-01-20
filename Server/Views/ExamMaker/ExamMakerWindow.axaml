@@ -2,11 +2,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:TTHV.Server.ViewModels.ExamMaker"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
         MinWidth="800" MinHeight="450"
         x:Class="TTHV.Server.Views.ExamMaker.ExamMakerWindow"
         Title="ExamMakerWindow">
+    <Design.DataContext>
+        <vm:ExamMakerWindowViewModel/>
+    </Design.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -18,7 +22,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnExcel" Grid.Column="0" Classes="CenterText" Margin="10"> Nhập đề từ Excel </Button>
+            <Button x:Name="btnExcel" Grid.Column="0" Classes="CenterText" Margin="10" Click="btnExcel_OnClick"> Nhập đề từ Excel </Button>
             <Button x:Name="btnSave"  Grid.Column="1" Classes="CenterText" Margin="10"> Lưu </Button>
         </Grid>
         
