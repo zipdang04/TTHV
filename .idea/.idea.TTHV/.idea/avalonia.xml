@@ -4,6 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="Server/App.axaml" value="Server/Server.csproj" />
+        <entry key="Server/Views/ExamMaker/Controller/WarmUpRelayView.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/ExamMakerWindow.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/abc.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/cb.axaml" value="Server/Server.csproj" />

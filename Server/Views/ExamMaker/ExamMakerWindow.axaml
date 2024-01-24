@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:TTHV.Server.ViewModels.ExamMaker"
+        xmlns:controller="clr-namespace:TTHV.Server.Views.ExamMaker.Controller"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
         MinWidth="800" MinHeight="450"
@@ -28,6 +29,7 @@
         
         <TabControl Margin="5" Grid.Row="1">
             <TabItem Header="Khởi động - Tiếp sức">
+                <controller:WarmUpRelayController/>
             </TabItem>
             <TabItem Header="Khởi động - Thách đấu">
             </TabItem>

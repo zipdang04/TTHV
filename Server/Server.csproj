@@ -11,7 +11,7 @@
     <ItemGroup>
         <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
-        <Folder Include="Views\ExamMaker\Controller" />
+        <Folder Include="ViewModels\ExamMaker\Controller" />
         <None Remove=".gitignore" />
     </ItemGroup>
 

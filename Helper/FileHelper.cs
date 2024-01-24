@@ -1,19 +1,12 @@
-using System.Net.Mime;
-using System.Reflection;
 using System.Text.Json;
-using Avalonia;
-using Avalonia.Shared.PlatformSupport;
 using TTHV.MatchInformation.Exam;
 
 namespace TTHV.Helper;
 
 public static class FileHelper
 {
-    private static readonly AssetLoader _assetLoader = new AssetLoader();
-    // private static string PREFIX_DIRECTORY = "avares://{0}/Assets/{1}";
-
     private static string getFullPath(string filename) {
-        return $"Resources/{filename}";
+        return $"{Constant.PREFIX_DIRECTORY}{filename}";
     }
     private static Stream getStream(string filename) {
         return new FileStream(getFullPath(filename), FileMode.Open);
