@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using TTHV.Helper;
 using TTHV.Server.ViewModels;
 using TTHV.Server.Views;
 
@@ -17,6 +18,7 @@ public partial class App : Application
             desktop.MainWindow = new MainWindow {
                 DataContext = new MainWindowViewModel(),
             };
+            FileHelper.setAssembly("Server");
         }
 
         base.OnFrameworkInitializationCompleted();

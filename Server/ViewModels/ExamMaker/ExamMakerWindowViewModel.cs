@@ -1,3 +1,4 @@
+using ReactiveUI;
 using TTHV.Helper;
 using TTHV.MatchInformation.Exam;
 
@@ -7,8 +8,10 @@ public class ExamMakerWindowViewModel : ViewModelBase
 {
     private const string EXAM_LOCATION = "Exam/Exam.json";
     private WholeExam wholeExam { set; get; }
+    private FileHelper helper;
 
     public ExamMakerWindowViewModel() {
-        wholeExam = FileHelper.getWholeExam(EXAM_LOCATION) ?? new WholeExam();
+        helper = FileHelper.getInstance();
+        wholeExam = helper.getWholeExam(EXAM_LOCATION) ?? new WholeExam();
     }
 }
