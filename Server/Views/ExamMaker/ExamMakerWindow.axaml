@@ -23,7 +23,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button x:Name="btnExcel" Grid.Column="0" Classes="CenterText" Margin="10" Click="btnExcel_OnClick"> Nhập đề từ Excel </Button>
-            <Button x:Name="btnSave"  Grid.Column="1" Classes="CenterText" Margin="10"> Lưu </Button>
+            <Button x:Name="btnSave"  Grid.Column="1" Classes="CenterText" Margin="10" Click="btnSave_OnClick"> Lưu </Button>
         </Grid>
         
         <TabControl Margin="5" Grid.Row="1">

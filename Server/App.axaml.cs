@@ -18,7 +18,6 @@ public partial class App : Application
             desktop.MainWindow = new MainWindow {
                 DataContext = new MainWindowViewModel(),
             };
-            FileHelper.setAssembly("Server");
         }
 
         base.OnFrameworkInitializationCompleted();

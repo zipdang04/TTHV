@@ -32,4 +32,10 @@
       <ProjectReference Include="..\Helper\Helper.csproj" />
       <ProjectReference Include="..\MatchInformation\MatchInformation.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
 </Project>

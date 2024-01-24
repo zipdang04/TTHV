@@ -1,4 +1,3 @@
-using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using TTHV.Server.ViewModels.ExamMaker;
@@ -14,18 +13,13 @@ public partial class MainWindow : Window
 
     private void btnExamMaker_OnClick(object? sender, RoutedEventArgs e) {
         ExamMakerWindow examMakerWindow = new ExamMakerWindow {
-            DataContext = new ExamMakerWindowViewModel()
+            DataContext = new ExamMakerWindowViewModel(),
         };
         examMakerWindow.Closed += (o, args) => {
-            try {
-                this.Show();
-            }
-            catch {
-                this.Close();
-            }
+            try { Show(); }
+            catch { Close(); }
         };
         
-        examMakerWindow.Show();
-        Hide();
+        examMakerWindow.Show(); Hide();
     }
 }

@@ -1,38 +1,24 @@
+using System.Net.Mime;
 using System.Reflection;
 using System.Text.Json;
+using Avalonia;
 using Avalonia.Shared.PlatformSupport;
 using TTHV.MatchInformation.Exam;
 
 namespace TTHV.Helper;
 
-public class FileHelper
+public static class FileHelper
 {
-    private static FileHelper helper;
-    private static string ASSEMBLY_NAME;
     private static readonly AssetLoader _assetLoader = new AssetLoader();
-    private static string PREFIX_DIRECTORY = "avares://{0}/Assets/{1}";
+    // private static string PREFIX_DIRECTORY = "avares://{0}/Assets/{1}";
 
-    private FileHelper() {}
-    public static void setAssembly(string assembly) {
-        ASSEMBLY_NAME = assembly;
-        PREFIX_DIRECTORY = $"avares://{assembly}/Assets/";
+    private static string getFullPath(string filename) {
+        return $"Resources/{filename}";
     }
-    public static FileHelper getInstance() {
-        if (ASSEMBLY_NAME == null)
-            throw new Exception("Did not set assembly before run");
-        if (helper == null)
-            helper = new FileHelper();
-        return helper;
+    private static Stream getStream(string filename) {
+        return new FileStream(getFullPath(filename), FileMode.Open);
     }
-
-    private Uri getUri(string filename) {
-        return new Uri(PREFIX_DIRECTORY + filename);
-    }
-    private Stream getStream(string filename) {
-        return _assetLoader.Open(getUri(filename));
-    }
-    
-    public WholeExam? getWholeExam(string filename) {
+    public static WholeExam? getWholeExam(string filename) {
         try {
             string value = new StreamReader(getStream(filename)).ReadToEnd();
             return JsonSerializer.Deserialize<WholeExam>(value);
@@ -40,5 +26,10 @@ public class FileHelper
         catch {
             return null;
         }
+    }
+
+    public static async void saveExam(string filename, WholeExam wholeExam) {
+        await using var stream = getStream(filename);
+        await JsonSerializer.SerializeAsync(stream, wholeExam);
     }
 }
