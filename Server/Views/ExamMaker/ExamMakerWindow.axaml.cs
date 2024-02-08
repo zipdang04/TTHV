@@ -1,14 +1,17 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using TTHV.Server.ViewModels.ExamMaker;
+using Avalonia.Media;
+using TTHV.Server.ViewModels;
+using TTHV.Server.Views.ExamMaker.Controller;
 
 namespace TTHV.Server.Views.ExamMaker;
 
 public partial class ExamMakerWindow : Window
 {
-    private ExamMakerWindowViewModel viewModel;
+    private ExamViewModel? viewModel;
 
     public ExamMakerWindow() {
         InitializeComponent();
@@ -16,21 +19,25 @@ public partial class ExamMakerWindow : Window
         this.AttachDevTools();
 #endif
     }
+
     private void InitializeComponent() {
         AvaloniaXamlLoader.Load(this);
+        
+        btnSave = this.FindControl<Button>("btnSave");
+        btnExcel = this.FindControl<Button>("btnExcel");
+        
+        DataContextChanged += OnDataContextChanged;
     }
-    private void assignViewModel() {
-        if (viewModel == null)
-            viewModel = (ExamMakerWindowViewModel)DataContext;
+    
+    private void OnDataContextChanged(object? sender, EventArgs e) {
+        viewModel = (ExamViewModel)DataContext;
     }
 
     private void btnExcel_OnClick(object? sender, RoutedEventArgs e) {
-        assignViewModel();
-        viewModel.importFromExcel();
+        viewModel?.importFromExcel();
     }
 
     private void btnSave_OnClick(object? sender, RoutedEventArgs e) {
-        assignViewModel();
-        viewModel.saveExam();
+        viewModel?.saveExam();
     }
 }

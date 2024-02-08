@@ -4,14 +4,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:TTHV.Server.ViewModels.ExamMaker"
         xmlns:controller="clr-namespace:TTHV.Server.Views.ExamMaker.Controller"
+        xmlns:viewModels="clr-namespace:TTHV.Server.ViewModels"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
         MinWidth="800" MinHeight="450"
         x:Class="TTHV.Server.Views.ExamMaker.ExamMakerWindow"
         Title="ExamMakerWindow">
-    <Design.DataContext>
-        <vm:ExamMakerWindowViewModel/>
-    </Design.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -28,16 +26,17 @@
         </Grid>
         
         <TabControl Margin="5" Grid.Row="1">
-            <TabItem Header="Khởi động - Tiếp sức">
+            <TabItem x:Name="tabItemWarmUpRelay" Header="Khởi động - Tiếp sức">
                 <controller:WarmUpRelayController/>
             </TabItem>
-            <TabItem Header="Khởi động - Thách đấu">
+            <TabItem x:Name="tabItemWarmUpConfront" Header="Khởi động - Thách đấu">
+                <controller:WarmUpConfrontController/>
             </TabItem>
-            <TabItem Header="Vượt chướng ngại vật">
+            <TabItem x:Name="tabItemObstacle" Header="Vượt chướng ngại vật">
             </TabItem>
-            <TabItem Header="Tăng tốc">
+            <TabItem x:Name="tabItemAcceleration" Header="Tăng tốc">
             </TabItem>
-            <TabItem Header="Về đích">
+            <TabItem x:Name="tabItemFinish" Header="Về đích">
             </TabItem>
             <TabItem Header="Câu hỏi phụ">
             </TabItem>

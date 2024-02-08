@@ -1,13 +1,13 @@
 using TTHV.Helper;
 using TTHV.MatchInformation.Exam;
 
-namespace TTHV.Server.ViewModels.ExamMaker;
+namespace TTHV.Server.ViewModels;
 
-public class ExamMakerWindowViewModel : ViewModelBase
+public class ExamViewModel : ViewModelBase
 {
-    private WholeExam wholeExam { set; get; }
+    public WholeExam wholeExam { set; get; }
 
-    public ExamMakerWindowViewModel() {
+    public ExamViewModel() {
         wholeExam = FileHelper.getWholeExam(Constant.EXAM_LOCATION) ?? new WholeExam();
     }
 

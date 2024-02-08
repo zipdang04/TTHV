@@ -4,5 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TTHV.Server.Views.ExamMaker.Controller.WarmUpRelayController">
-    
+    <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <Label Background="Black"></Label>
+                <Label Classes="CenterText">Thí sinh 1</Label>
+                <StackPanel x:Name="stackP1"/>
+                <Label Background="Black"></Label>
+                <Label Classes="CenterText">Thí sinh 2</Label>
+                <StackPanel x:Name="stackP2"/>
+                <Label Background="Black"></Label>
+                <Label Classes="CenterText">Thí sinh 3</Label>
+                <StackPanel x:Name="stackP3"/>
+                <Label Background="Black"></Label>
+                <Label Classes="CenterText">Thí sinh 4</Label>
+                <StackPanel x:Name="stackP4"/>
+                <Label Background="Black"></Label>
+            </StackPanel>    
+        </ScrollViewer>
+    </Grid>
 </UserControl>
