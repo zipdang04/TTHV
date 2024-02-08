@@ -5,9 +5,9 @@ namespace TTHV.Server.ViewModels.ExamMaker.Component;
 
 public class QuestionControlViewModel: ViewModelBase
 {
-    public Question content { set; get; }
+    private Question content { set; get; }
 
-    public string subject => content.subject?.value ?? "";
+    public string subject => content.topic?.value ?? "";
 
     public string question {
         set => content.question = value;

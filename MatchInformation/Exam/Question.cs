@@ -2,15 +2,15 @@
 
 public class Question
 {
-    public Question(Constant.Subject? subject = null, string question = "", string answer = "", string note = "", string attachment = "") {
-        this.subject = subject;
+    public Question(Topic? topic = null, string question = "", string answer = "", string note = "", string attachment = "") {
+        this.topic = topic;
         this.question = question;
         this.answer = answer;
         this.note = note;
         this.attachment = attachment;
     }
 
-    public Constant.Subject? subject { set; get; }
+    public Topic? topic { set; get; }
     public string question { set; get; }
     public string answer { set; get; }
     public string note { set; get; }

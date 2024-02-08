@@ -11,25 +11,13 @@ public class Obstacle
     public const int WRONG_WITHOUT_STAR = 0;
     public const int WRONG_WITH_STAR = -STAR_THRESHOLD;
 
-    public static readonly string[] SUBJECTS =
-    {
-        "Ai?",
-        "Cái gì?",
-        "Ở đâu?",
-        "Khi nào?",
-        "Who?",
-        "What?",
-        "Where?",
-        "When?"
-    };
-
     public static readonly int[] CORRECT = new int[HINTS_PER_Q] { 50, 25, 10 };
 
     public Obstacle()
     {
-        questions = new Tuple<int, Question>[QUESTION_COUNT];
-        for (var i = 0; i < QUESTION_COUNT; i++) questions[i] = new Tuple<int, Question>(0, new Question());
+        questions = new Question[QUESTION_COUNT];
+        for (var i = 0; i < QUESTION_COUNT; i++) questions[i] = new Question();
     }
 
-    public Tuple<int, Question>[] questions { set; get; }
+    public Question[] questions { set; get; }
 }
