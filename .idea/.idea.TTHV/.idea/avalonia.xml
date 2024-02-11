@@ -8,6 +8,8 @@
         <entry key="Server/Views/ExamMaker/Component/ObstacleQuestionControl.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/Component/QuestionControl.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/Component/QuestionEditor.axaml" value="Server/Server.csproj" />
+        <entry key="Server/Views/ExamMaker/Controller/AccelerationController.axaml" value="Server/Server.csproj" />
+        <entry key="Server/Views/ExamMaker/Controller/FinishController.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/Controller/ObstacleController.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/Controller/WarmUpConfrontController.axaml" value="Server/Server.csproj" />
         <entry key="Server/Views/ExamMaker/Controller/WarmUpRelayController.axaml" value="Server/Server.csproj" />

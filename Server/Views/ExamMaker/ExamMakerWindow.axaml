@@ -36,8 +36,10 @@
                 <controller:ObstacleController/>
             </TabItem>
             <TabItem x:Name="tabItemAcceleration" Header="Tăng tốc">
+                <controller:AccelerationController/>
             </TabItem>
             <TabItem x:Name="tabItemFinish" Header="Về đích">
+                <controller:FinishController/>
             </TabItem>
             <TabItem Header="Câu hỏi phụ">
             </TabItem>

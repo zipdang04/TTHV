@@ -10,7 +10,7 @@
     </Design.DataContext>
     <StackPanel>
         <Label Background="Black"></Label>
-        <Label Classes="CenterText" Content="{Binding id, StringFormat='CNV số {0}'}" FontWeight="ExtraBold"/>
+        <Label Classes="Title" Content="{Binding id, StringFormat='CNV số {0}'}" FontWeight="ExtraBold"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
@@ -23,7 +23,7 @@
             
             <Label Classes="CenterText">Loại câu hỏi</Label>
             <Label Grid.Column="1" Classes="CenterText">Đáp án CNV</Label>
-            <ComboBox Grid.Row="1" Grid.Column="0" x:Name="cbxTopic" Items="{Binding ALL_TOPICS}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItem="{Binding topic, Mode=TwoWay}">
+            <ComboBox Grid.Row="1" Grid.Column="0" Items="{Binding ALL_TOPICS}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItem="{Binding topic, Mode=TwoWay}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding value}"/>  <!-- Path=WhTopic.value -->

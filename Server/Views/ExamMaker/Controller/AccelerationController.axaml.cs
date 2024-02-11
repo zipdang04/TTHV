@@ -9,11 +9,10 @@ using TTHV.Server.Views.ExamMaker.Component;
 
 namespace TTHV.Server.Views.ExamMaker.Controller;
 
-public partial class WarmUpConfrontController : UserControl
+public partial class AccelerationController : UserControl
 {
     private ExamViewModel? _viewModel;
-    
-    public WarmUpConfrontController() {
+    public AccelerationController() {
         InitializeComponent();
     }
 
@@ -30,11 +29,11 @@ public partial class WarmUpConfrontController : UserControl
     }
 
     private void updateExam() {
-        var warmUpConfront = _viewModel.wholeExam.warmUpConfront;
-        stackPanel.Children.Clear();
-        foreach (Question question in warmUpConfront.questions)
+        var questions = _viewModel?.wholeExam.accelerate.questions;
+        for (int i = 0; i < questions.Length; i++){
             stackPanel.Children.Add(
-                new QuestionControl() {DataContext = new QuestionControlViewModel(question, true)}
+                new QuestionControl() {DataContext = new QuestionControlViewModel(questions[i], labelContent: $"Câu {i + 1}")}
             );
+        }
     }
 }

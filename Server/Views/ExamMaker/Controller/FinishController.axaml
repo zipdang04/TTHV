@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TTHV.Server.Views.ExamMaker.Controller.FinishController">
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel x:Name="stack1">
+                <Label Background="Black"/>
+                <Label Classes="Title" FontWeight="ExtraBold">Thí sinh 1</Label>
+            </StackPanel>
+            <StackPanel x:Name="stack2">
+                <Label Background="Black"/>
+                <Label Classes="Title" FontWeight="ExtraBold">Thí sinh 2</Label>
+            </StackPanel>
+            <StackPanel x:Name="stack3">
+                <Label Background="Black"/>
+                <Label Classes="Title" FontWeight="ExtraBold">Thí sinh 3</Label>
+            </StackPanel>
+            <StackPanel x:Name="stack4">
+                <Label Background="Black"/>
+                <Label Classes="Title" FontWeight="ExtraBold">Thí sinh 4</Label>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

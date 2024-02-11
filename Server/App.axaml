@@ -9,18 +9,26 @@
     <Application.Styles>
         <FluentTheme Mode="Light"/>
         
-        <Style Selector="Label.CenterText">
+        <Style Selector=":is(ContentControl).CenterText">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
         </Style>
-        <Style Selector="Button.CenterText">
+        <Style Selector=":is(ContentControl).Title">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="FontWeight" Value="ExtraBold"/>
+            <Setter Property="FontSize" Value="16"/>
         </Style>
+        <!-- <Style Selector="Button.CenterText"> -->
+        <!--     <Setter Property="HorizontalContentAlignment" Value="Center"/> -->
+        <!--     <Setter Property="VerticalContentAlignment" Value="Center"/> -->
+        <!--     <Setter Property="HorizontalAlignment" Value="Stretch"/> -->
+        <!--     <Setter Property="VerticalAlignment" Value="Stretch"/> -->
+        <!-- </Style> -->
         <Style Selector="TabItem">
             <Setter Property="FontSize" Value="13"/>
         </Style>

@@ -17,7 +17,16 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         
-        <Label Grid.Column="0" Content="{Binding subject}"/>
+        <!-- <Label Grid.Column="0" Content="{Binding subject}"/> -->
+        <ComboBox Grid.Column="0" Items="{Binding ALL_TOPICS}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItem="{Binding subject, Mode=TwoWay}" IsVisible="{Binding topicVisibility}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding value}"/>  <!-- Path=SubjectTopic.value -->
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label IsVisible="{Binding labelVisibility}" Classes="CenterText" Content="{Binding labelContent}"/>
+        
         <TextBox Grid.Column="1" Text="{Binding question}" Watermark="Câu hỏi" AcceptsReturn="True"/>
         <TextBox Grid.Column="2" Text="{Binding answer}" Watermark="Đáp án" AcceptsReturn="True"/>
         <TextBox Grid.Column="3" Text="{Binding note}" Watermark="Chú thích" AcceptsReturn="True"/>

@@ -17,7 +17,6 @@ public class ObstacleQuestionControlViewModel: ViewModelBase
     
     public Topic? topic {
         get => question.topic;
-
         set => question.topic = value;
     }
 

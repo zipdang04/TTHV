@@ -11,9 +11,9 @@ namespace TTHV.Server.Views.ExamMaker.Controller;
 
 public partial class WarmUpRelayController : UserControl
 {
-    private ExamViewModel viewModel;
+    private ExamViewModel? _viewModel;
 
-    private StackPanel[] questionStack;
+    private StackPanel[]? _questionStack;
     public WarmUpRelayController() {
         InitializeComponent();
         DataContextChanged += OnDataContextChanged;
@@ -27,7 +27,7 @@ public partial class WarmUpRelayController : UserControl
         stackP3 = this.FindControl<StackPanel>("stackP3");
         stackP4 = this.FindControl<StackPanel>("stackP4");
         
-        questionStack = new[] {
+        _questionStack = new[] {
             stackP1,
             stackP2,
             stackP3,
@@ -36,18 +36,18 @@ public partial class WarmUpRelayController : UserControl
     }
     
     private void OnDataContextChanged(object? sender, EventArgs e) {
-        viewModel = (ExamViewModel)DataContext;
+        _viewModel = (ExamViewModel?)DataContext;
         updateExam();
     }
 
     private void updateExam() {  
-        var wholeExam = viewModel.wholeExam;
+        var wholeExam = _viewModel.wholeExam;
         for (int player = 0; player < Constant.PLAYERS; player++) {
-            if (questionStack[player] == null) continue;
-            questionStack[player].Children.Clear();
+            if (_questionStack[player] == null) continue;
+            _questionStack[player].Children.Clear();
             foreach (Question question in wholeExam.warmUpRelay.questions[player])
-                questionStack[player].Children.Add(
-                    new QuestionControl() { DataContext = new QuestionControlViewModel(question) }
+                _questionStack[player].Children.Add(
+                    new QuestionControl() { DataContext = new QuestionControlViewModel(question, true) }
                 );
         }
     }

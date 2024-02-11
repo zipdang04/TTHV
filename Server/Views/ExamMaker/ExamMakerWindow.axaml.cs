@@ -11,7 +11,7 @@ namespace TTHV.Server.Views.ExamMaker;
 
 public partial class ExamMakerWindow : Window
 {
-    private ExamViewModel? viewModel;
+    private ExamViewModel? _viewModel;
 
     public ExamMakerWindow() {
         InitializeComponent();
@@ -30,14 +30,14 @@ public partial class ExamMakerWindow : Window
     }
     
     private void OnDataContextChanged(object? sender, EventArgs e) {
-        viewModel = (ExamViewModel)DataContext;
+        _viewModel = (ExamViewModel?)DataContext;
     }
 
     private void btnExcel_OnClick(object? sender, RoutedEventArgs e) {
-        viewModel?.importFromExcel();
+        _viewModel?.importFromExcel();
     }
 
     private void btnSave_OnClick(object? sender, RoutedEventArgs e) {
-        viewModel?.saveExam();
+        _viewModel?.saveExam();
     }
 }

@@ -82,7 +82,7 @@ public class SubjectTopic : Topic
         IT = new SubjectTopic(4),
         ENGLISH = new SubjectTopic(5),
         OTHERS = new SubjectTopic(6);
-    private static readonly SubjectTopic[] ENUM_LIST = {
+    public static readonly SubjectTopic[] ENUM_LIST = {
         NAT_SCI, SOC_SCI, ART, SPORT, IT, ENGLISH, OTHERS
     };
     private static readonly string[] SUBJECTS = {
