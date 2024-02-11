@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace TTHV.MatchInformation.Exam;
 
 public class Obstacle
@@ -15,9 +17,46 @@ public class Obstacle
 
     public Obstacle()
     {
-        questions = new Question[QUESTION_COUNT];
-        for (var i = 0; i < QUESTION_COUNT; i++) questions[i] = new Question();
+        questions = new ObstacleQuestion[QUESTION_COUNT];
+        for (var i = 0; i < QUESTION_COUNT; i++) questions[i] = new ObstacleQuestion();
     }
 
-    public Question[] questions { set; get; }
+    public ObstacleQuestion[] questions { set; get; }
+}
+
+public class ObstacleQuestion
+{
+    public class Hint
+    {
+        public string hint { set; get; }
+        public string media { set; get; }
+        public string note { set; get; }
+
+        public Hint(string hint = "", string media = "", string note = "") {
+            this.hint = hint;
+            this.media = media;
+            this.note = note;
+        }
+    }
+    
+    public Topic? topic { get; set; }
+    public string answer { get; set; }
+    public Hint[] hints { get; set; }
+
+    public ObstacleQuestion() {
+        topic = null;
+        answer = "";
+        hints = new Hint[Obstacle.HINTS_PER_Q];
+        
+        for (var i = 0; i < Obstacle.HINTS_PER_Q; i++) {
+            hints[i] = new Hint();
+        }
+    }
+
+    [JsonConstructor]
+    public ObstacleQuestion(string topic, string answer, Hint[] hints) {
+        this.topic = WhTopic.fromValue(topic);
+        this.answer = answer;
+        this.hints = hints;
+    }
 }

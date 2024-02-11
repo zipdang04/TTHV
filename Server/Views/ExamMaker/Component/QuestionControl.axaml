@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:TTHV.Server.ViewModels.ExamMaker.Component"
-             mc:Ignorable="d" d:DesignWidth="800" Height="40"
+             mc:Ignorable="d" d:DesignWidth="800" Height="45"
              x:Class="TTHV.Server.Views.ExamMaker.Component.QuestionControl">
     <Design.DataContext>
         <vm:QuestionControlViewModel/>
@@ -18,9 +18,9 @@
         </Grid.ColumnDefinitions>
         
         <Label Grid.Column="0" Content="{Binding subject}"/>
-        <TextBox Grid.Column="1" Text="{Binding question}" AcceptsReturn="True"/>
-        <TextBox Grid.Column="2" Text="{Binding answer}"/>
-        <TextBox Grid.Column="3" Text="{Binding note}"/>
-        <TextBox Grid.Column="4" Text="{Binding attachment}"/>
+        <TextBox Grid.Column="1" Text="{Binding question}" Watermark="Câu hỏi" AcceptsReturn="True"/>
+        <TextBox Grid.Column="2" Text="{Binding answer}" Watermark="Đáp án" AcceptsReturn="True"/>
+        <TextBox Grid.Column="3" Text="{Binding note}" Watermark="Chú thích" AcceptsReturn="True"/>
+        <TextBox Grid.Column="4" Text="{Binding attachment}" Watermark="Media"/>
     </Grid>
 </UserControl>

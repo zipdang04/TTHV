@@ -1,6 +1,7 @@
-using System.Text.Json;
+using System.Text;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using Newtonsoft.Json;
 using TTHV.MatchInformation.Exam;
 
 namespace TTHV.Helper;
@@ -11,12 +12,12 @@ public static class FileHelper
         return $"{Constant.PREFIX_DIRECTORY}{filename}";
     }
     private static Stream getStream(string filename) {
-        return new FileStream(getFullPath(filename), FileMode.Open);
+        return new FileStream(getFullPath(filename), FileMode.OpenOrCreate);
     }
     public static WholeExam? getWholeExam(string filename) {
         try {
-            string value = new StreamReader(getStream(filename)).ReadToEnd();
-            return JsonSerializer.Deserialize<WholeExam>(value);
+            var value = File.ReadAllText(getFullPath(filename), Encoding.Unicode);
+            return JsonConvert.DeserializeObject<WholeExam>(value);
         }
         catch {
             return null;
@@ -25,7 +26,12 @@ public static class FileHelper
 
     public static async void saveExam(string filename, WholeExam wholeExam) {
         await using var stream = getStream(filename);
-        await JsonSerializer.SerializeAsync(stream, wholeExam);
+        stream.SetLength(0); await stream.FlushAsync();
+        
+        var value = JsonConvert.SerializeObject(wholeExam);
+        var unicode = new UnicodeEncoding();
+        var result = unicode.GetBytes(value);
+        await stream.WriteAsync(result);
     }
 
     public static async void readExamFromExcel(string filename) {

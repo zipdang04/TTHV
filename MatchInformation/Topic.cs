@@ -1,11 +1,17 @@
+using Newtonsoft.Json;
+
 namespace TTHV.MatchInformation;
 
-
+[JsonConverter(typeof(TopicConverter))]
 public abstract class Topic
 {
     public abstract string value { get; }
+    public override string ToString() {
+        return value;
+    }
 }
 
+[JsonConverter(typeof(TopicConverter))]
 public class WhTopic : Topic
 {
     private const int LANGUAGE_OFFSET = 3;
@@ -17,11 +23,11 @@ public class WhTopic : Topic
         WHO_VI = new WhTopic(5, 3),
         WHAT_VI = new WhTopic(6, 3),
         WHERE_VI = new WhTopic(7, 3),
-        WHEN_VI = new WhTopic(9, 3),
+        WHEN_VI = new WhTopic(8, 3),
         WHO_EN = new WhTopic(5, 4),
         WHAT_EN = new WhTopic(6, 4),
         WHERE_EN = new WhTopic(7, 4),
-        WHEN_EN = new WhTopic(9, 4);
+        WHEN_EN = new WhTopic(8, 4);
     private static readonly WhTopic[][] ENUM_LIST = {
         new WhTopic[] { WHO_VI, WHAT_VI, WHERE_VI, WHEN_VI }, 
         new WhTopic[] { WHO_EN, WHAT_EN, WHERE_EN, WHEN_EN }
@@ -31,13 +37,16 @@ public class WhTopic : Topic
         new string[] { "Who?", "What?", "Where?", "When?" }
     };
 
+    public static readonly WhTopic[] ALL_ENUMS = new[] 
+        { WHO_VI, WHAT_VI, WHERE_VI, WHEN_VI, WHO_EN, WHAT_EN, WHERE_EN, WHEN_EN }; 
+
     private readonly int questionCode, languageCode;
-    public override string value => WH_QUESTIONS[languageCode][questionCode];
+    public override string value => WH_QUESTIONS[languageCode - LANGUAGE_OFFSET][questionCode - QUESTION_OFFSET];
 
     private WhTopic(int questionCode, int languageCode) {
-        if (questionCode is < 0 or >= NUMBER_OF_WHQS)
+        if (questionCode - QUESTION_OFFSET is < 0 or >= NUMBER_OF_WHQS)
             throw new Exception($"Enum error: questionCode must be between {QUESTION_OFFSET + 0} and {QUESTION_OFFSET + NUMBER_OF_WHQS - 1}");
-        if (languageCode is < 0 or >= NUMBER_OF_LANGUAGES)
+        if (languageCode - LANGUAGE_OFFSET is < 0 or >= NUMBER_OF_LANGUAGES)
             throw new Exception($"Enum error: languageCode must be between {LANGUAGE_OFFSET + 0} and {LANGUAGE_OFFSET + NUMBER_OF_LANGUAGES - 1}");
         
         this.questionCode = questionCode;
@@ -53,10 +62,15 @@ public class WhTopic : Topic
     }
 
     public static WhTopic? fromCode(int questionCode, int languageCode) {
-        return new WhTopic(questionCode, languageCode);
+        if (questionCode - QUESTION_OFFSET is < 0 or >= NUMBER_OF_WHQS)
+            throw new Exception($"Enum error: questionCode must be between {QUESTION_OFFSET + 0} and {QUESTION_OFFSET + NUMBER_OF_WHQS - 1}");
+        if (languageCode - LANGUAGE_OFFSET is < 0 or >= NUMBER_OF_LANGUAGES)
+            throw new Exception($"Enum error: languageCode must be between {LANGUAGE_OFFSET + 0} and {LANGUAGE_OFFSET + NUMBER_OF_LANGUAGES - 1}");
+        return ENUM_LIST[questionCode - QUESTION_OFFSET][languageCode - LANGUAGE_OFFSET];
     }
 }
 
+[JsonConverter(typeof(TopicConverter))]
 public class SubjectTopic : Topic
 {
     private const int NUMBER_OF_SUBJECTS = 7;
@@ -97,3 +111,26 @@ public class SubjectTopic : Topic
         return null;
     }
 }
+
+public class TopicConverter : JsonConverter
+{
+    public override Topic? ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) {
+        var value = (string)reader.Value;
+        
+        var subjectTopic = SubjectTopic.fromValue(value);
+        if (subjectTopic != null) return subjectTopic;
+        var whTopic = WhTopic.fromValue(value);
+        if (whTopic != null) return whTopic;
+
+        return null;
+    }
+
+    public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) {
+        var topic = (Topic)value;
+        writer.WriteValue(topic.value);
+    }
+    
+    public override bool CanConvert(Type typeToConvert) {
+        return typeToConvert == typeof(string) || typeToConvert == typeof(String);
+    }
+} 

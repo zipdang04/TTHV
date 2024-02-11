@@ -33,6 +33,7 @@
                 <controller:WarmUpConfrontController/>
             </TabItem>
             <TabItem x:Name="tabItemObstacle" Header="Vượt chướng ngại vật">
+                <controller:ObstacleController/>
             </TabItem>
             <TabItem x:Name="tabItemAcceleration" Header="Tăng tốc">
             </TabItem>

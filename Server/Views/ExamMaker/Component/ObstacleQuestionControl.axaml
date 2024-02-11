@@ -1,0 +1,66 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TTHV.Server.ViewModels.ExamMaker.Component"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="275"
+             x:Class="TTHV.Server.Views.ExamMaker.Component.ObstacleQuestionControl">
+    <Design.DataContext>
+        <vm:ObstacleQuestionControlViewModel/>
+    </Design.DataContext>
+    <StackPanel>
+        <Label Background="Black"></Label>
+        <Label Classes="CenterText" Content="{Binding id, StringFormat='CNV số {0}'}" FontWeight="ExtraBold"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Classes="CenterText">Loại câu hỏi</Label>
+            <Label Grid.Column="1" Classes="CenterText">Đáp án CNV</Label>
+            <ComboBox Grid.Row="1" Grid.Column="0" x:Name="cbxTopic" Items="{Binding ALL_TOPICS}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedItem="{Binding topic, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding value}"/>  <!-- Path=WhTopic.value -->
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBox Grid.Row="1" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding answer}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+                <RowDefinition Height="45"/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="1" Classes="CenterText">50 điểm</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Watermark="Dữ kiện" Text="{Binding hints[0].hint}" AcceptsReturn="True"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Watermark="Giải thích" Text="{Binding hints[0].note}" AcceptsReturn="True"/>
+            <TextBox Grid.Row="1" Grid.Column="3" Watermark="Media" Text="{Binding hints[0].media}"/>
+            
+            <Label Grid.Row="2" Classes="CenterText">20 điểm</Label>
+            <TextBox Grid.Row="2" Grid.Column="1" Watermark="Dữ kiện" Text="{Binding hints[1].hint}" AcceptsReturn="True"/>
+            <TextBox Grid.Row="2" Grid.Column="2" Watermark="Giải thích" Text="{Binding hints[1].note}" AcceptsReturn="True"/>
+            <TextBox Grid.Row="2" Grid.Column="3" Watermark="Media" Text="{Binding hints[1].media}"/>
+            
+            <Label Grid.Row="3" Classes="CenterText">10 điểm</Label>
+            <TextBox Grid.Row="3" Grid.Column="1" Watermark="Dữ kiện" Text="{Binding hints[2].hint}" AcceptsReturn="True"/>
+            <TextBox Grid.Row="3" Grid.Column="2" Watermark="Giải thích" Text="{Binding hints[2].note}" AcceptsReturn="True"/>
+            <TextBox Grid.Row="3" Grid.Column="3" Watermark="Media" Text="{Binding hints[2].media}"/>
+        </Grid>
+        <Label Background="Black"></Label>
+    </StackPanel>
+</UserControl>
